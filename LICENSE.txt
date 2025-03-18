@@ -1,0 +1,14 @@
+Bienvenue dans AutoSavePro !
+
+Merci d'avoir choisi notre application de sauvegarde automatique.
+
+Cette application est conçue pour vous aider à ne jamais perdre vos documents importants en effectuant des sauvegardes automatiques de vos fichiers pendant que vous travaillez.
+
+En utilisant cette application, vous acceptez que :
+- L'application s'exécute en arrière-plan pour surveiller vos documents
+- Les sauvegardes soient stockées dans votre dossier Documents
+- L'application démarre automatiquement avec Windows
+
+Profitez de la tranquillité d'esprit qu'offre la sauvegarde automatique !
+
+© 2025 Ares.Inc - Tous droits réservés 
