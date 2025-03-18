@@ -40,15 +40,17 @@ namespace AutosavePro
             _iconManager = new IconManager();
             _appsManager = new InstalledAppsManager();
             
+            // Initialiser le BackupManager et UIStateManager en premier
+            InitializeBackupManager();
+            
+            // Initialiser TrayManager après UIStateManager mais avant les composants
+            InitializeNotifyIcon();
+            
             // Initialiser les composants de l'interface
             InitializeComponent();
             
-            // Initialiser le BackupManager et UIStateManager
-            InitializeBackupManager();
-            
             // Configurer les contrôles après initialisation complète
             SetupUIUpdateTimer();
-            InitializeNotifyIcon();
             
             // Ajouter un gestionnaire pour le redimensionnement
             this.SizeChanged += MainForm_SizeChanged;
@@ -62,6 +64,12 @@ namespace AutosavePro
             var mainMenu = _formConfigManager.CreateMainMenu(SettingsMenu_Click, ConfigAppsMenu_Click);
             this.MainMenuStrip = mainMenu;
             this.Controls.Add(mainMenu);
+            
+            // Vérifier que UIStateManager est bien initialisé
+            if (_uiStateManager == null)
+            {
+                throw new InvalidOperationException("UIStateManager n'est pas initialisé. Assurez-vous que InitializeBackupManager() est appelé avant InitializeComponent().");
+            }
             
             // Initialiser TabControlManager après que UIStateManager soit initialisé
             _tabControlManager = new TabControlManager(this, _iconManager, _uiStateManager);
@@ -187,12 +195,22 @@ namespace AutosavePro
                 "AutosavePro"
             );
 
+            // Créer d'abord BackupManager
             _backupManager = new BackupManager(backupPath);
+            
+            // Puis créer UIStateManager avec les dépendances
             _uiStateManager = new UIStateManager(_backupManager, _appsManager);
+            
+            // Vérification que _uiStateManager est bien initialisé
+            if (_uiStateManager == null)
+            {
+                throw new InvalidOperationException("Échec de l'initialisation de UIStateManager");
+            }
             
             // S'abonner aux événements du UIStateManager
             _uiStateManager.ApplicationsListUpdateRequested += () => UpdateApplicationsList();
             
+            // Configurer BackupManager
             _backupManager.SetBackupInterval(5); // Par défaut 5 minutes
             _backupManager.SetEnabled(false); // Désactivé par défaut
 
@@ -379,7 +397,7 @@ namespace AutosavePro
                 () => ApplicationRegistry.Instance.ShouldShowWelcomeDialog()
             );
             
-            InitializeBackupManager();
+            // Mettre à jour la liste des applications, le BackupManager étant déjà initialisé
             UpdateApplicationsList();
             
             // Ajouter un dernier filet de sécurité après le chargement complet

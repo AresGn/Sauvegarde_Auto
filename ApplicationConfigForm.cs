@@ -290,7 +290,14 @@ namespace AutosavePro
             // Chemins supplémentaires
             foreach (var path in _config.AdditionalSearchPaths)
             {
-                _pathsListView.Items.Add(path);
+                if (path is string strPath)
+                {
+                    _pathsListView.Items.Add(strPath);
+                }
+                else if (path is KeyValuePair<string, int> kvpPath)
+                {
+                    _pathsListView.Items.Add(kvpPath.Key);
+                }
             }
         }
         
@@ -360,7 +367,7 @@ namespace AutosavePro
                 _config.AdditionalSearchPaths.Clear();
                 foreach (ListViewItem item in _pathsListView.Items)
                 {
-                    _config.AdditionalSearchPaths.Add(item.Text);
+                    _config.AdditionalSearchPaths.Add(new KeyValuePair<string, int>(item.Text, 100));
                 }
                 
                 // Enregistrer la configuration
