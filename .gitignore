@@ -1,0 +1,67 @@
+# Fichiers et dossiers générés par Visual Studio
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.dll
+*.exe
+*.pdb
+*.msi
+*.msix
+*.msixbundle
+*.appx
+*.appxbundle
+
+# Fichiers de build
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+
+# Fichiers spécifiques à l'IDE
+.vscode/
+.idea/
+*.sln.iml
+
+# Fichiers temporaires
+*.tmp
+*.log
+*.swp
+*~
+._*
+
+# Fichiers de packages NuGet
+packages/
+*.nupkg
+# Fichiers de projects.assets.json générés par NuGet
+project.assets.json
+project.lock.json
+*.nuget.props
+*.nuget.targets
+
+# Fichiers d'utilisateur de Visual Studio
+*.rsuser
+*.user
+*.userosscache
+*.sln.docstates
+
+# Fichiers de Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# Logs et base de données
+*.log
+*.sqlite
+*.sqlite3
+
+# Fichiers spécifiques à l'OS
+Thumbs.db
+desktop.ini
+.DS_Store 
