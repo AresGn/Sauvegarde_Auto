@@ -71,3 +71,6 @@ Contient des composants d'interface utilisateur organisés en sous-dossiers :
 3. **Historique des versions** : Maintient un historique des versions sauvegardées des fichiers.
 4. **Configuration flexible** : Interface utilisateur permettant de configurer les applications à surveiller et les paramètres de sauvegarde.
 5. **Notification système** : Notifications via la barre d'état système pour informer l'utilisateur des sauvegardes. 
+## Licence
+
+Distribué sous licence MIT. Voir [LICENSE](LICENSE).
