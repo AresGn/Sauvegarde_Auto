@@ -2,6 +2,9 @@
 
 AutosavePro est une application Windows qui surveille et sauvegarde automatiquement les fichiers ouverts dans différents logiciels, protégeant ainsi le travail des utilisateurs contre les pertes de données accidentelles.
 
+- 🌐 **Site officiel** : [autosavepro.vercel.app](https://autosavepro.vercel.app) (code du site : [AresGn/Autosave_site](https://github.com/AresGn/Autosave_site))
+- ⬇️ **Télécharger l'installateur Windows** : [AutosavePro_Setup.exe (v1.0.0)](https://github.com/AresGn/Autosave_site/releases/tag/autosave)
+
 ## Structure du Projet
 
 ### Fichiers Principaux
